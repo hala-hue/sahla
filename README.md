@@ -1,6 +1,6 @@
-# Sahala Subair — Developer Portfolio
+# Sahla Subair — Developer Portfolio
 
-A responsive, scrollable portfolio website built in the **Developer X** dark minimalist theme for **Sahala Subair**, Full Stack Developer (Java, React, TypeScript).
+A responsive, scrollable portfolio website built in the **Developer X** dark minimalist theme for **Sahla Subair**, Full Stack Developer (Java, React, TypeScript).
 
 ## 🚀 Live Preview & Quick Start
 
@@ -32,9 +32,9 @@ Then visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📸 Customizing the Profile Picture
 The website currently includes a vector illustration portrait (`assets/hero-portrait.svg`).
-To use Sahala's actual headshot:
+To use Sahla's actual headshot:
 1. Place the photo in `assets/` (e.g., `assets/sahala.png` or `assets/sahala.jpg`).
 2. In `index.html`, update the image tag:
    ```html
-   <img src="assets/sahala.png" alt="Sahala Subair" class="portrait-image" id="heroPortraitImg">
+   <img src="assets/sahala.png" alt="Sahla Subair" class="portrait-image" id="heroPortraitImg">
    ```
