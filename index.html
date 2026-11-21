@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahala Subair — Full Stack Developer (Java, React, TypeScript)</title>
+  <meta name="description" content="Portfolio of Sahala Subair — Full Stack Developer specializing in Java, Spring Boot, React 18, TypeScript, and serverless Cloudflare Workers.">
+  
+  <!-- Google Fonts: Bebas Neue, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Monogram Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23886F56'/><text x='50%25' y='63%25' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='44' fill='%23ffffff'>SS</text></svg>">
+  
+  <!-- INLINED CRITICAL CSS to ensure 100% instant rendering with zero network delay or caching issues -->
+  <style>
+    :root {
+      --bg-page: #FAF1EA;
+      --bg-arch: #EADBCF;
+      --bg-card: #D7C6B6;
+      --bg-card-hover: #CDBCAB;
+      --bg-card-light: #FEFBF7;
+      
+      --text-dark: #1C1917;
+      --text-primary-brown: #6E583F;
+      --text-muted: #7D6850;
+      
+      --title-color: #A08870;
+      --sub-color: #8A7359;
+      
+      --btn-mocha: #886F56;
+      --btn-mocha-hover: #755E47;
+      --btn-text: #FFFFFF;
+      
+      --line-brown: #78624A;
+      --border-subtle: rgba(28, 25, 23, 0.08);
+      --border-card: rgba(28, 25, 23, 0.12);
+      
+      --font-watermark: 'Bebas Neue', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 8px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      
+      --max-w: 1200px;
+      --transition: all 0.22s ease-in-out;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-page);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ==========================================================================
+       Header: Monogram Logo on Left, Clean 3-Line Hamburger on Right
+       (Exact Dribbble Front Page Header)
+       ========================================================================== */
+.site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: transparent;
+      padding: 24px 32px 0;
+      transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      position: fixed;
+      background: rgba(250, 241, 234, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 20px rgba(28, 25, 23, 0.07);
+      padding: 14px 32px;
+    }
+
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Desktop Navigation Redirection Buttons: hidden on mobile, visible on desktop */
+    .desktop-header-nav {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (min-width: 769px) {
+      .desktop-header-nav {
+        display: flex;
+      }
+    }
+
+    .desktop-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      background: rgba(254, 251, 247, 0.72);
+      border: 1px solid rgba(136, 111, 86, 0.24);
+      color: var(--text-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 2px 6px rgba(28, 25, 23, 0.04);
+      transition: var(--transition);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .desktop-nav-btn:hover {
+      background: var(--btn-mocha);
+      color: #ffffff;
+      border-color: var(--btn-mocha);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(136, 111, 86, 0.28);
+    }
+
+    .desktop-nav-btn:active {
+      transform: translateY(0);
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .header-flex {
+        max-width: 1200px;
+      }
+    }
+
+    .brand-monogram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sub-color);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .brand-monogram:hover {
+      transform: scale(1.06);
+    }
+
+    .hamburger-toggle-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      padding: 6px;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    .hamburger-toggle-btn span {
+      display: block;
+      width: 30px;
+      height: 2.8px;
+      background-color: #3B3026;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .hamburger-toggle-btn:hover span {
+      background-color: var(--btn-mocha);
+    }
+
+    /* Fullscreen Drawer (Hidden by default, displayed ONLY when .open is present) */
+    .nav-overlay-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(250, 241, 234, 0.98);
+      backdrop-filter: blur(14px);
+      z-index: 2000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-overlay-drawer.open {
+      display: flex !important;
+      opacity: 1;
+    }
+
+    .nav-drawer-close {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--text-dark);
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 4px;
+    }
+
+    .nav-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-drawer-links a {
+      font-family: var(--font-watermark);
+      font-size: 2.8rem;
+      letter-spacing: 0.05em;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+
+    .nav-drawer-links a:hover {
+      color: var(--btn-mocha);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Front Page Hero Section (Exact 1:1 Match from Reference Image)
+       ========================================================================== */
+    .front-page-hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      background: var(--bg-page);
+    }
+
+    .front-hero-stage {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* 1. Stacked Headline: MERN / STACK / Developer */
+    .stacked-title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      user-select: none;
+      margin-bottom: -10px;
+      z-index: 1;
+    }
+
+    .title-line-1,
+    .title-line-2 {
+      font-family: var(--font-watermark);
+      font-size: clamp(5.4rem, 18vw, 9.8rem);
+      line-height: 0.82;
+      letter-spacing: 0.05em;
+      color: var(--title-color);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .title-line-developer {
+      font-family: var(--font-sans);
+      font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+      font-weight: 500;
+      color: var(--sub-color);
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    /* 2. Visual Center Stage with Arch Backdrop, Cutout Portrait & Side Callouts */
+    .portrait-stage-container {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      min-height: 440px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 10px;
+    }
+
+    /* Arch Shape behind the shoulders */
+    .arch-backdrop-shape {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88%;
+      max-width: 420px;
+      height: 350px;
+      border-radius: 240px 240px 0 0;
+      background: var(--bg-arch);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Cutout Portrait */
+    .portrait-cutout-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+    }
+
+    /* 3. Left Callout: | B.E. / Computer / Science */
+    .side-callout-left {
+      position: absolute;
+      left: -4px;
+      top: 42%;
+      z-index: 3;
+      border-left: 2.2px solid var(--line-brown);
+      padding-left: 14px;
+      text-align: left;
+    }
+
+    .callout-bold-text {
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      font-weight: 800;
+      color: var(--text-primary-brown);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      display: block;
+    }
+
+    .callout-light-text {
+      font-size: clamp(1rem, 2.1vw, 1.35rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* 4. Right Callout: Sahala | / Subair */
+    .side-callout-right {
+      position: absolute;
+      right: -4px;
+      top: 42%;
+      z-index: 3;
+      border-right: 2.2px solid var(--line-brown);
+      padding-right: 14px;
+      text-align: right;
+    }
+
+    /* 5. Bottom Centered CTA Button: Get in touch -> */
+    .bottom-cta-container {
+      margin-top: 24px;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-pill-get-in-touch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--btn-mocha);
+      color: var(--btn-text);
+      padding: 13px 44px;
+      border-radius: var(--radius-pill);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      box-shadow: 0 6px 20px rgba(136, 111, 86, 0.28);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-pill-get-in-touch:hover {
+      background: var(--btn-mocha-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(136, 111, 86, 0.38);
+      color: #fff;
+    }
+
+    .btn-pill-get-in-touch svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-pill-get-in-touch:hover svg {
+      transform: translateX(4px);
+    }
+
+
+    /* ==========================================================================
+       Skills Continuous Horizontal Marquee (Left to Right Motion)
+       Positioned right after the Hero section, before Projects
+       ========================================================================== */
+    .skills-marquee-banner {
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg-arch);
+      border-top: 1.5px solid var(--border-card);
+      border-bottom: 1.5px solid var(--border-card);
+      padding: 16px 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .skills-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScrollLeftToRight 30s linear infinite;
+      will-change: transform;
+    }
+
+    .skills-marquee-banner:hover .skills-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScrollLeftToRight {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-right: 16px;
+      flex-shrink: 0;
+    }
+
+    .marquee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAF3EC;
+      border: 1px solid rgba(136, 111, 86, 0.25);
+      border-radius: var(--radius-pill);
+      padding: 9px 20px;
+      color: var(--text-dark);
+      font-size: 0.92rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(136, 111, 86, 0.08);
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .marquee-pill:hover {
+      background: #FFFFFF;
+      border-color: var(--btn-mocha);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(136, 111, 86, 0.18);
+    }
+
+    .marquee-pill svg {
+      width: 20px;
+      height: 20px;
+      color: var(--btn-mocha);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .marquee-pill:hover svg {
+      transform: scale(1.15);
+    }
+
+    /* ==========================================================================
+       Projects Section (Browser Mockup + Rotated "PROJECTS" Watermark)
+       ========================================================================== */
+    .projects-section {
+      position: relative;
+      padding: 90px 0 110px;
+      background: var(--bg-page);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .projects-inner-layout {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .vertical-watermark-left {
+      position: absolute;
+      left: -20px;
+      top: 40px;
+      font-family: var(--font-watermark);
+      font-size: clamp(5.5rem, 12.5vw, 12rem);
+      line-height: 0.85;
+      letter-spacing: 0.04em;
+      color: var(--title-color);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .projects-cards-wrapper {
+      margin-left: clamp(20px, 8vw, 110px);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .browser-window-card {
+      background: #FDFAF6;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 45px rgba(28, 25, 23, 0.07);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .browser-window-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(28, 25, 23, 0.11);
+    }
+
+    .browser-header-bar {
+      background: #ECD9C7;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #BAA694;
+    }
+
+    .browser-address-pill {
+      margin: 0 auto;
+      background: #F8F2EA;
+      padding: 3px 22px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .browser-card-content {
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .project-details-col h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin: 8px 0 14px;
+    }
+
+    .project-details-col p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .tech-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-tag-chip {
+      background: var(--bg-card);
+      color: var(--text-dark);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .project-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-open-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--btn-mocha);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .btn-open-project:hover {
+      background: var(--btn-mocha-hover);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-github-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-github-circle:hover {
+      background: var(--text-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-github-circle svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .project-preview-mockup-box {
+      background: #ECD9C7;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-callout-pill {
+      background: #FDFAF6;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+    }
+
+    /* ==========================================================================
+       Skills Section (Exact Dribbble "SKILLS" + Logo Ribbon)
+       ========================================================================== */
+    .skills-section {
+      padding: 90px 0 100px;
+      background: var(--bg-page);
+      text-align: center;
+    }
+
+    .section-watermark-center {
+      font-family: var(--font-watermark);
+      font-size: clamp(5.5rem, 13vw, 12rem);
+      line-height: 0.85;
+      letter-spacing: 0.05em;
+      color: var(--title-color);
+      text-transform: uppercase;
+      user-select: none;
+      margin-bottom: 24px;
+    }
+
+    .skills-icons-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 36px;
+    }
+
+    .skill-logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .skill-logo-item:hover {
+      transform: translateY(-4px);
+      color: var(--btn-mocha);
+    }
+
+    .skill-logo-item svg {
+      width: 44px;
+      height: 44px;
+    }
+
+    /* ==========================================================================
+       Services Section (2x2 Grid + Rotated "SERVICES" on the Right)
+       ========================================================================== */
+    .services-section {
+      padding: 90px 0 110px;
+      background: var(--bg-page);
+      position: relative;
+    }
+
+    .services-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .services-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-tan-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 38px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 190px;
+      transition: var(--transition);
+    }
+
+    .service-tan-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(28, 25, 23, 0.09);
+    }
+
+    .service-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    .service-cta-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .service-cta-link svg {
+      width: 19px;
+      height: 19px;
+      transition: transform 0.2s ease;
+    }
+
+    .service-tan-card:hover .service-cta-link svg {
+      transform: translate(3px, -3px);
+    }
+
+    .vertical-watermark-right {
+      font-family: var(--font-watermark);
+      font-size: clamp(5.5rem, 12vw, 11rem);
+      line-height: 0.85;
+      letter-spacing: 0.04em;
+      color: var(--title-color);
+      writing-mode: vertical-rl;
+      user-select: none;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       Experience Section (Numbered 01, 02)
+       ========================================================================== */
+    .experience-section {
+      padding: 90px 0 110px;
+      background: var(--bg-page);
+    }
+
+    .experience-entries-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 36px;
+    }
+
+    .experience-item-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 36px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: baseline;
+    }
+
+    .exp-big-num {
+      font-family: var(--font-watermark);
+      font-size: 4.8rem;
+      line-height: 0.85;
+      color: var(--title-color);
+    }
+
+    .exp-content-box h4 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .exp-company-tag {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--btn-mocha);
+      margin-bottom: 12px;
+    }
+
+    .exp-content-box p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       Social Presence & Footer
+       ========================================================================== */
+    .social-section {
+      padding: 90px 0 60px;
+      background: var(--bg-page);
+      text-align: center;
+    }
+
+    .social-circle-buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin: 40px 0 60px;
+    }
+
+    .social-icon-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-icon-circle:hover {
+      background: var(--text-dark);
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(28, 25, 23, 0.15);
+    }
+
+    .social-icon-circle svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .bottom-copyright-line {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 36px;
+    }
+
+    /* ==========================================================================
+       Modals (Hidden by default, displayed ONLY when .open is present)
+       ========================================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      display: flex !important;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #FDFAF6;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px;
+      box-shadow: 0 25px 50px rgba(28, 25, 23, 0.25);
+    }
+
+    .modal-close-x {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .swap-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin: 16px 0 24px;
+    }
+
+    .swap-option-card {
+      border: 2px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--bg-page);
+      transition: var(--transition);
+    }
+
+    .swap-option-card:hover,
+    .swap-option-card.selected {
+      border-color: var(--btn-mocha);
+      box-shadow: 0 6px 18px rgba(136, 111, 86, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .swap-option-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+    }
+
+    .swap-option-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .swap-file-input-wrapper {
+      margin-top: 18px;
+      padding: 20px;
+      border: 2px dashed var(--border-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+      background: var(--bg-page);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .browser-card-content {
+        grid-template-columns: 1fr;
+      }
+      .services-layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .vertical-watermark-right {
+        display: none;
+      }
+      .vertical-watermark-left {
+        display: none;
+      }
+      .projects-cards-wrapper {
+        margin-left: 0 !important;
+      }
+    }
+
+    /* Mobile Responsive Optimizations (< 768px and < 480px) */
+    @media (max-width: 768px) {
+
+      /* Marquee banner mobile scaling */
+      .skills-marquee-banner {
+        padding: 12px 0;
+      }
+      .marquee-group {
+        gap: 10px;
+        padding-right: 10px;
+      }
+      .marquee-pill {
+        padding: 7px 14px;
+        font-size: 0.82rem;
+        gap: 7px;
+      }
+      .marquee-pill svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .site-header {
+        padding: 18px 20px 0;
+      }
+
+      /* Hero section mobile scaling */
+      .front-page-hero {
+        min-height: auto;
+        padding-top: 70px;
+        padding-bottom: 36px;
+      }
+
+      .title-line-1,
+      .title-line-2 {
+        font-size: clamp(4.6rem, 20vw, 6.8rem);
+        line-height: 0.82;
+      }
+
+      .title-line-developer {
+        font-size: clamp(1.6rem, 5.8vw, 2.2rem);
+        margin-top: 2px;
+      }
+
+      .portrait-stage-container {
+        min-height: 380px;
+        margin-top: 6px;
+      }
+
+      .arch-backdrop-shape {
+        width: 86%;
+        max-width: 320px;
+        height: 310px;
+        border-radius: 170px 170px 0 0;
+      }
+
+      .portrait-cutout-img {
+        max-width: 320px;
+        max-height: 390px;
+      }
+
+      .side-callout-left {
+        left: -4px;
+        top: 38%;
+        padding-left: 10px;
+      }
+
+      .side-callout-right {
+        right: -4px;
+        top: 38%;
+        padding-right: 10px;
+      }
+
+      .callout-bold-text {
+        font-size: 1.25rem;
+      }
+
+      .callout-light-text {
+        font-size: 0.92rem;
+      }
+
+      .btn-pill-get-in-touch {
+        padding: 12px 36px;
+        font-size: 0.96rem;
+      }
+
+      /* Projects section mobile scaling & address pill fix */
+      .projects-section {
+        padding: 60px 0 70px;
+      }
+
+      .projects-cards-wrapper {
+        margin-left: 0 !important;
+        gap: 36px;
+      }
+
+      .browser-window-card {
+        border-radius: 16px;
+      }
+
+      .browser-header-bar {
+        height: 42px;
+        padding: 0 14px;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .browser-address-pill {
+        margin: 0 auto;
+        padding: 3px 12px;
+        font-size: 0.72rem;
+        max-width: 190px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .browser-card-content {
+        padding: 24px 18px;
+        gap: 24px;
+      }
+
+      .project-details-col h3 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+        margin: 6px 0 12px;
+      }
+
+      .project-details-col p {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        margin-bottom: 16px;
+      }
+
+      .tech-tags-list {
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag-chip {
+        padding: 5px 11px;
+        font-size: 0.76rem;
+      }
+
+      .project-actions-row {
+        gap: 12px;
+      }
+
+      .btn-open-project {
+        flex: 1;
+        justify-content: center;
+        padding: 11px 18px;
+        font-size: 0.88rem;
+      }
+
+      .project-preview-mockup-box {
+        padding: 18px;
+        gap: 10px;
+      }
+
+      .feature-callout-pill {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+      }
+
+      /* Skills section mobile */
+      .skills-section {
+        padding: 60px 0 70px;
+      }
+
+      .section-watermark-center {
+        font-size: clamp(3.8rem, 16vw, 6rem);
+        margin-bottom: 16px;
+      }
+
+      .skills-icons-row {
+        gap: 20px 14px;
+        margin-top: 24px;
+      }
+
+      .skill-logo-item {
+        width: calc(33.33% - 12px);
+        font-size: 0.78rem;
+        gap: 6px;
+      }
+
+      .skill-logo-item svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      /* Services section mobile */
+      .services-section {
+        padding: 60px 0 70px;
+      }
+
+      .services-layout-grid {
+        display: block;
+      }
+
+      .services-2x2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .service-tan-card {
+        padding: 26px 22px;
+        min-height: 140px;
+      }
+
+      .service-title {
+        font-size: 1.3rem;
+      }
+
+      /* Experience section mobile */
+      .experience-section {
+        padding: 60px 0 70px;
+      }
+
+      .experience-entries-list {
+        gap: 28px;
+        margin-top: 20px;
+      }
+
+      .experience-item-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-bottom: 24px;
+      }
+
+      .exp-big-num {
+        font-size: 3.2rem;
+        line-height: 1;
+      }
+
+      .exp-content-box h4 {
+        font-size: 1.3rem;
+      }
+
+      .exp-content-box p {
+        font-size: 0.92rem;
+      }
+
+      /* Social section mobile */
+      .social-section {
+        padding: 60px 0 40px;
+      }
+
+      .social-circle-buttons-row {
+        gap: 14px;
+        margin: 28px 0 40px;
+      }
+
+      .social-icon-circle {
+        width: 48px;
+        height: 48px;
+      }
+
+      .social-icon-circle svg {
+        width: 19px;
+        height: 19px;
+      }
+    }
+
+    @media (max-width: 400px) {
+
+      .marquee-pill {
+        padding: 6px 11px;
+        font-size: 0.76rem;
+      }
+
+      .browser-address-pill {
+        max-width: 150px;
+        font-size: 0.68rem;
+      }
+      .side-callout-left {
+        left: -6px;
+      }
+      .side-callout-right {
+        right: -6px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+
+  <!-- Top Header (Exact Dribbble Front Page: Monogram on Left, Hamburger on Right) -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-flex">
+      <!-- Monogram Logo Mark matching "dp" style -->
+      <a href="#home" class="brand-monogram" aria-label="Sahala Subair Home">
+        <svg viewBox="0 0 60 40" width="46" height="34" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10 C16 10, 10 13, 10 18 C10 23, 24 22, 24 28 C24 33, 17 35, 11 34" />
+          <path d="M42 10 C36 10, 30 13, 30 18 C30 23, 44 22, 44 28 C44 33, 37 35, 31 34" />
+        </svg>
+      </a>
+
+      <!-- Right Header Cluster: Desktop Redirection Buttons + Hamburger -->
+      <div class="header-right-group">
+        <nav class="desktop-header-nav" aria-label="Quick Section Navigation">
+          <a href="#projects" class="desktop-nav-btn">Projects</a>
+          <a href="#skills" class="desktop-nav-btn">Skills</a>
+          <a href="#experience" class="desktop-nav-btn">Experience</a>
+          <a href="#socials" class="desktop-nav-btn">Socials</a>
+        </nav>
+
+        <!-- Clean 3-line Hamburger Button -->
+        <button class="hamburger-toggle-btn" id="navDrawerOpenBtn" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Navigation Drawer (Overlay Menu - opened ONLY via hamburger) -->
+  <div class="nav-overlay-drawer" id="navOverlayDrawer" aria-hidden="true">
+    <button class="nav-drawer-close" id="navDrawerCloseBtn" aria-label="Close Navigation Menu">&times;</button>
+    <div class="brand-monogram" style="margin-bottom: 24px; transform: scale(1.3);">
+      <svg viewBox="0 0 60 40" width="56" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 10 C16 10, 10 13, 10 18 C10 23, 24 22, 24 28 C24 33, 17 35, 11 34" />
+        <path d="M42 10 C36 10, 30 13, 30 18 C30 23, 44 22, 44 28 C44 33, 37 35, 31 34" />
+      </svg>
+    </div>
+    <ul class="nav-drawer-links">
+      <li><a href="#home" class="drawer-link">Home</a></li>
+      <li><a href="#projects" class="drawer-link">Projects</a></li>
+      <li><a href="#skills" class="drawer-link">Skills</a></li>
+      <li><a href="#services" class="drawer-link">Services</a></li>
+      <li><a href="#experience" class="drawer-link">Experience</a></li>
+      <li><a href="#resumeModal" class="drawer-link" id="drawerResumeLink">Resume</a></li>
+      <li><a href="#contact" class="drawer-link">Contact</a></li>
+    </ul>
+    <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+      <a href="#contact" class="btn-pill-get-in-touch drawer-link" style="padding: 12px 32px; font-size: 0.95rem;">Get in touch →</a>
+      <button type="button" class="btn-pill-get-in-touch" id="openPhotoSwapBtn" style="padding: 12px 28px; background: transparent; border: 1.5px solid var(--sub-color); color: var(--sub-color); font-size: 0.95rem; cursor: pointer; box-shadow: none;">Swap Photo / Role 📷</button>
+    </div>
+  </div>
+
+  <!-- Hero Section: reference-inspired layout, tailored to Sahala's full-stack profile -->
+  <section class="front-page-hero" id="home">
+    <div class="front-hero-stage">
+      
+      <!-- 1. Stacked Giant Headline: FULL / STACK / Developer -->
+      <div class="stacked-title-group">
+        <h1 class="title-line-1" id="heroTitleLine1">FULL</h1>
+        <h1 class="title-line-2" id="heroTitleLine2">STACK</h1>
+        <div class="title-line-developer">Developer</div>
+      </div>
+
+      <!-- 2. Visual Center Stage with Arch Backdrop, Cutout Portrait & Side Callouts -->
+      <div class="portrait-stage-container">
+        <!-- Arch backdrop shape behind shoulders -->
+        <div class="arch-backdrop-shape"></div>
+
+        <!-- Left Callout: | B.E. Computer Science -->
+        <div class="side-callout-left">
+          <span class="callout-bold-text">B.E.</span>
+          <span class="callout-light-text">Computer<br>Science</span>
+        </div>
+
+        <!-- Center Cutout Photo of Sahala Subair -->
+        <img id="heroPortraitImg" src="assets/sahala-portrait.png" alt="Sahala Subair - Full Stack Developer" class="portrait-cutout-img">
+
+        <!-- Right Callout: Sahala Subair | -->
+        <div class="side-callout-right">
+          <span class="callout-bold-text">Sahala</span>
+          <span class="callout-light-text">Subair</span>
+        </div>
+      </div>
+
+      <!-- 3. Bottom Centered CTA Button -->
+      <div class="bottom-cta-container">
+        <a href="#contact" class="btn-pill-get-in-touch">
+          Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+<!-- Skills Continuous Horizontal Marquee (Continuous Motion: Left to Right) -->
+  <section class="skills-marquee-banner" aria-label="Core Skills Continuous Marquee">
+    <div class="skills-marquee-track">
+      <!-- Group 1 -->
+      <div class="marquee-group">
+        <div class="marquee-pill" title="React 18">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2" fill="currentColor"></circle><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)"></ellipse></svg>
+          <span>React 18</span>
+        </div>
+        <div class="marquee-pill" title="Core Java">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          <span>Core Java</span>
+        </div>
+        <div class="marquee-pill" title="Spring Boot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          <span>Spring Boot</span>
+        </div>
+        <div class="marquee-pill" title="TypeScript">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 8h6"></path><path d="M11 8v8"></path><path d="M16 12c.5-.5 1-1 1.8-1 1 0 1.2.7 1.2 1.4 0 1.6-3 1.8-3 3.6 0 .8.6 1.4 1.5 1.4 1 0 1.8-.7 2.1-1.4"></path></svg>
+          <span>TypeScript</span>
+        </div>
+        <div class="marquee-pill" title="Cloudflare Workers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><polyline points="13 14 11 17 14 17 12 20"></polyline></svg>
+          <span>Cloudflare Workers</span>
+        </div>
+        <div class="marquee-pill" title="PostgreSQL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>PostgreSQL</span>
+        </div>
+        <div class="marquee-pill" title="MySQL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"></path><circle cx="18" cy="18" r="3"></circle></svg>
+          <span>MySQL</span>
+        </div>
+        <div class="marquee-pill" title="Node.js">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"></path><path d="M12 12l8-4.5"></path><path d="M12 12v8"></path><path d="M12 12L4 7.5"></path></svg>
+          <span>Node.js</span>
+        </div>
+        <div class="marquee-pill" title="Hono Framework">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>Hono</span>
+        </div>
+        <div class="marquee-pill" title="HTML5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path><path d="M8 7h8l-.5 4H8.5l.3 3 3.2.8 3.2-.8.2-2"></path></svg>
+          <span>HTML5</span>
+        </div>
+        <div class="marquee-pill" title="CSS3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path><path d="M8 8h8l-1 5-3 1-3-1"></path></svg>
+          <span>CSS3</span>
+        </div>
+        <div class="marquee-pill" title="JavaScript (ES6+)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 12h3"></path><path d="M14 9v6"></path></svg>
+          <span>JavaScript</span>
+        </div>
+        <div class="marquee-pill" title="Vitest & JUnit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <span>Vitest & JUnit</span>
+        </div>
+        <div class="marquee-pill" title="Docker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="10" width="20" height="9" rx="2"></rect><line x1="6" y1="10" x2="6" y2="7"></line><line x1="10" y1="10" x2="10" y2="7"></line><line x1="14" y1="10" x2="14" y2="7"></line><line x1="18" y1="10" x2="18" y2="7"></line></svg>
+          <span>Docker</span>
+        </div>
+        <div class="marquee-pill" title="Git & GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 9v12"></path><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+          <span>Git & GitHub</span>
+        </div>
+        <div class="marquee-pill" title="REST APIs">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="3"></circle><circle cx="19" cy="12" r="3"></circle><line x1="8" y1="12" x2="16" y2="12"></line><line x1="12" y1="8" x2="12" y2="16"></line></svg>
+          <span>REST APIs</span>
+        </div>
+      </div>
+
+      <!-- Group 2 (Duplicate for seamless infinite loop) -->
+      <div class="marquee-group" aria-hidden="true">
+        <div class="marquee-pill" title="React 18">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2" fill="currentColor"></circle><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)"></ellipse></svg>
+          <span>React 18</span>
+        </div>
+        <div class="marquee-pill" title="Core Java">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          <span>Core Java</span>
+        </div>
+        <div class="marquee-pill" title="Spring Boot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          <span>Spring Boot</span>
+        </div>
+        <div class="marquee-pill" title="TypeScript">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 8h6"></path><path d="M11 8v8"></path><path d="M16 12c.5-.5 1-1 1.8-1 1 0 1.2.7 1.2 1.4 0 1.6-3 1.8-3 3.6 0 .8.6 1.4 1.5 1.4 1 0 1.8-.7 2.1-1.4"></path></svg>
+          <span>TypeScript</span>
+        </div>
+        <div class="marquee-pill" title="Cloudflare Workers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><polyline points="13 14 11 17 14 17 12 20"></polyline></svg>
+          <span>Cloudflare Workers</span>
+        </div>
+        <div class="marquee-pill" title="PostgreSQL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>PostgreSQL</span>
+        </div>
+        <div class="marquee-pill" title="MySQL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"></path><circle cx="18" cy="18" r="3"></circle></svg>
+          <span>MySQL</span>
+        </div>
+        <div class="marquee-pill" title="Node.js">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"></path><path d="M12 12l8-4.5"></path><path d="M12 12v8"></path><path d="M12 12L4 7.5"></path></svg>
+          <span>Node.js</span>
+        </div>
+        <div class="marquee-pill" title="Hono Framework">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>Hono</span>
+        </div>
+        <div class="marquee-pill" title="HTML5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path><path d="M8 7h8l-.5 4H8.5l.3 3 3.2.8 3.2-.8.2-2"></path></svg>
+          <span>HTML5</span>
+        </div>
+        <div class="marquee-pill" title="CSS3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path><path d="M8 8h8l-1 5-3 1-3-1"></path></svg>
+          <span>CSS3</span>
+        </div>
+        <div class="marquee-pill" title="JavaScript (ES6+)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 12h3"></path><path d="M14 9v6"></path></svg>
+          <span>JavaScript</span>
+        </div>
+        <div class="marquee-pill" title="Vitest & JUnit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <span>Vitest & JUnit</span>
+        </div>
+        <div class="marquee-pill" title="Docker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="10" width="20" height="9" rx="2"></rect><line x1="6" y1="10" x2="6" y2="7"></line><line x1="10" y1="10" x2="10" y2="7"></line><line x1="14" y1="10" x2="14" y2="7"></line><line x1="18" y1="10" x2="18" y2="7"></line></svg>
+          <span>Docker</span>
+        </div>
+        <div class="marquee-pill" title="Git & GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 9v12"></path><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+          <span>Git & GitHub</span>
+        </div>
+        <div class="marquee-pill" title="REST APIs">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="3"></circle><circle cx="19" cy="12" r="3"></circle><line x1="8" y1="12" x2="16" y2="12"></line><line x1="12" y1="8" x2="12" y2="16"></line></svg>
+          <span>REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Projects Section (Exact Dribbble Browser Mockup + Rotated "PROJECTS" Watermark) -->
+  <section class="projects-section" id="projects">
+    <div class="container projects-inner-layout">
+      
+      <!-- Vertical Rotated Watermark "PROJECTS" on Left -->
+      <div class="vertical-watermark-left">PROJECTS</div>
+
+      <div class="projects-cards-wrapper">
+        
+        <!-- Project 1: MediSync (Real Live Project URL from User's Browser Tab) -->
+        <article class="browser-window-card">
+          <div class="browser-header-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="browser-address-pill">smart-appointment-system.ayisha-clinic.workers.dev</span>
+          </div>
+
+          <div class="browser-card-content">
+            <div class="project-details-col">
+              <span style="font-family: var(--font-watermark); font-size: 1.5rem; color: var(--btn-mocha); letter-spacing: 0.04em;">EDGE SERVERLESS PLATFORM</span>
+              <h3>MediSync — Smart Clinic Appointment Platform</h3>
+              <p>
+                A serverless full stack healthcare clinic platform deployed on Cloudflare Workers, serving both the Hono REST API and React 18 SPA from a unified Worker to eliminate CORS roundtrips and achieve sub-15ms edge latency.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag-chip">React 18</span>
+                <span class="tech-tag-chip">TypeScript</span>
+                <span class="tech-tag-chip">Cloudflare Workers</span>
+                <span class="tech-tag-chip">Cloudflare D1</span>
+                <span class="tech-tag-chip">Hono</span>
+                <span class="tech-tag-chip">Drizzle ORM</span>
+                <span class="tech-tag-chip">Tailwind CSS</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://smart-appointment-system.ayisha-clinic.workers.dev/docs#description/introduction" target="_blank" rel="noopener noreferrer" class="btn-open-project">
+                  Live API Docs ↗
+                </a>
+                <a href="https://github.com/SahlaSubair" target="_blank" rel="noopener noreferrer" class="btn-github-circle" aria-label="GitHub Repository">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Card Box -->
+            <div class="project-preview-mockup-box">
+              <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 4px;">Architecture Highlights</div>
+              <div class="feature-callout-pill">
+                <strong>Zero Double-Booking:</strong> SQLite partial unique index enforcing 409 Conflict rejection.
+              </div>
+              <div class="feature-callout-pill">
+                <strong>Sub-15ms Latency:</strong> Zero CORS roundtrips across global edge data centers.
+              </div>
+              <div class="feature-callout-pill">
+                <strong>16 Vitest Suites:</strong> Verified parallel request collision test suites in CI/CD.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Multimedia Encryption -->
+        <article class="browser-window-card">
+          <div class="browser-header-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="browser-address-pill">github.com/SahlaSubair/multimedia-encryption</span>
+          </div>
+
+          <div class="browser-card-content">
+            <div class="project-details-col">
+              <span style="font-family: var(--font-watermark); font-size: 1.5rem; color: var(--btn-mocha); letter-spacing: 0.04em;">CRYPTOGRAPHY &amp; SECURITY</span>
+              <h3>Multimedia Encryption Using Dual Chaotic Maps</h3>
+              <p>
+                Implemented a high-security multimedia encryption system in Python utilizing Arnold Cat Map for spatial pixel permutation and Henon Map for non-linear pseudo-random diffusion, securing streaming video and image assets against cryptanalysis.
+              </p>
+
+              <div class="tech-tags-list">
+                <span class="tech-tag-chip">Python</span>
+                <span class="tech-tag-chip">Arnold Cat Map</span>
+                <span class="tech-tag-chip">Henon Map</span>
+                <span class="tech-tag-chip">NumPy</span>
+                <span class="tech-tag-chip">OpenCV</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/SahlaSubair" target="_blank" rel="noopener noreferrer" class="btn-open-project">
+                  View Code Repository ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-mockup-box">
+              <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 4px;">Security Model</div>
+              <div class="feature-callout-pill">
+                <strong>Pixel Permutation:</strong> Shuffles 2D spatial coordinate matrix via Arnold Cat Map.
+              </div>
+              <div class="feature-callout-pill">
+                <strong>Chaotic Diffusion:</strong> Generates high Shannon entropy using non-linear sequences.
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills Section (Exact Dribbble "SKILLS" + Logo Ribbon) -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      
+      <!-- Giant Title "SKILLS" -->
+      <div class="section-watermark-center">SKILLS</div>
+
+      <!-- Clean Logo Ribbon -->
+      <div class="skills-icons-row">
+        <!-- React -->
+        <div class="skill-logo-item" title="React 18">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+          <span>React 18</span>
+        </div>
+
+        <!-- Java -->
+        <div class="skill-logo-item" title="Java SE">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path></svg>
+          <span>Core Java</span>
+        </div>
+
+        <!-- Spring Boot -->
+        <div class="skill-logo-item" title="Spring Boot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <span>Spring Boot</span>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="skill-logo-item" title="TypeScript">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 12h8"></path></svg>
+          <span>TypeScript</span>
+        </div>
+
+        <!-- Cloudflare -->
+        <div class="skill-logo-item" title="Cloudflare Workers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+          <span>Cloudflare</span>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="skill-logo-item" title="PostgreSQL & MySQL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>PostgreSQL</span>
+        </div>
+
+        <!-- Node.js / Hono -->
+        <div class="skill-logo-item" title="Hono & Node.js">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Hono / Node</span>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="skill-logo-item" title="HTML5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path></svg>
+          <span>HTML5</span>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="skill-logo-item" title="CSS3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l2 15 6 3 6-3 2-15H4z"></path><path d="M8 8h8l-1 5-3 1-3-1"></path></svg>
+          <span>CSS3</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-logo-item" title="JavaScript">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 12h3"></path><path d="M14 9v6"></path></svg>
+          <span>JavaScript</span>
+        </div>
+
+        <!-- Vitest -->
+        <div class="skill-logo-item" title="Vitest & JUnit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Vitest</span>
+        </div>
+
+        <!-- Git -->
+        <div class="skill-logo-item" title="Git & GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 9v12"></path><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+          <span>Git</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services Section (Exact Dribbble 2x2 Grid + Rotated "SERVICES" Watermark) -->
+  <section class="services-section" id="services">
+    <div class="container services-layout-grid">
+      
+      <!-- 2x2 Tan Cards Grid -->
+      <div class="services-2x2">
+        
+        <div class="service-tan-card">
+          <div class="service-title">Full Stack Web Development</div>
+          <div class="service-cta-link">
+            <span>React 18 &amp; TypeScript SPAs</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="service-tan-card">
+          <div class="service-title">Backend &amp; REST API Design</div>
+          <div class="service-cta-link">
+            <span>Spring Boot, Hono &amp; Drizzle</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="service-tan-card">
+          <div class="service-title">Edge &amp; Serverless Cloud</div>
+          <div class="service-cta-link">
+            <span>Cloudflare Workers &amp; D1</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="service-tan-card">
+          <div class="service-title">Database Architecture</div>
+          <div class="service-cta-link">
+            <span>MySQL, PostgreSQL &amp; Concurrency</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rotated "SERVICES" Watermark on the Right -->
+      <div class="vertical-watermark-right">SERVICES</div>
+
+    </div>
+  </section>
+
+  <!-- Experience Section (Numbered 01, 02 Layout from Dribbble) -->
+  <section class="experience-section" id="experience">
+    <div class="container">
+      
+      <!-- Big Title "EXPERIENCE" -->
+      <div class="section-watermark-center">EXPERIENCE</div>
+
+      <div class="experience-entries-list">
+        
+        <!-- Entry 01 -->
+        <div class="experience-item-row">
+          <div class="exp-big-num">01</div>
+          <div class="exp-content-box">
+            <h4>Java Full Stack Development Intern</h4>
+            <div class="exp-company-tag">Tap Academy — Bangalore (Feb 2026 – Jul 2026)</div>
+            <p>
+              Developed responsive user interfaces using HTML and CSS across 3 web application modules. Programmed core Java (OOP, collections framework, exception handling, multithreading) and used Git &amp; GitHub for version control in Eclipse IDE and VS Code. Built and tested backend logic and database interactions using SQL and MySQL.
+            </p>
+          </div>
+        </div>
+
+        <!-- Entry 02 -->
+        <div class="experience-item-row">
+          <div class="exp-big-num">02</div>
+          <div class="exp-content-box">
+            <h4>Bachelor of Engineering in Computer Science &amp; Engineering</h4>
+            <div class="exp-company-tag">P A College of Engineering — Mangalore (2022 – 2026)</div>
+            <p>
+              Grounding in Data Structures and Algorithms, Object Oriented Programming, Operating Systems, Database Management Systems, and Web Technologies. Completed certifications in CS50 (Harvard University), C Programming (IIT Bombay), and Cloud Computing in AWS.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Social Presence & Footer (Exact Dribbble Style) -->
+  <div id="contact" style="position: relative; top: -40px; visibility: hidden;"></div>
+  <footer class="social-section" id="socials">
+    <div class="container">
+      
+      <!-- Big Title "SOCIAL PRESENCE" -->
+      <div class="section-watermark-center">SOCIAL PRESENCE</div>
+
+      <!-- Row of Dark Circular Icon Buttons -->
+      <div class="social-circle-buttons-row">
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/sahla-subair" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 1 0 0-3.3 1.65 1.65 0 0 0 0 3.3m1.4 9.74V9.94H5.06v8.56h2.8z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/SahlaSubair" target="_blank" rel="noopener noreferrer" class="social-icon-circle" aria-label="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:sahlasubair02@gmail.com" class="social-icon-circle" aria-label="Email Sahala">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+971506270402" class="social-icon-circle" aria-label="Phone">
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Copyright Notice from Dribbble Screenshot -->
+      <div class="bottom-copyright-line">
+        Copyright © 2026 | All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Resume Modal -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-card">
+      <button class="modal-close-x" id="closeModalX" aria-label="Close modal">&times;</button>
+      
+      <div style="border-bottom: 1px solid var(--border-card); padding-bottom: 18px; margin-bottom: 22px;">
+        <span style="font-family: var(--font-watermark); font-size: 1.3rem; color: var(--btn-mocha); letter-spacing: 0.04em;">CURRICULUM VITAE</span>
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--text-dark); margin-top: 4px;">Sahala Subair</h2>
+        <p style="color: var(--btn-mocha-hover); font-weight: 600;">Full Stack Developer (Java, React, TypeScript)</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Dubai, UAE | +971 50 627 0402 | sahlasubair02@gmail.com</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; color: var(--text-dark); font-size: 0.95rem; line-height: 1.65;">
+        <div>
+          <h4 style="font-weight: 800; margin-bottom: 4px;">Professional Summary</h4>
+          <p style="color: var(--text-muted);">
+            Computer Science Engineering graduate with Java Full Stack Development internship experience. Skilled in Java, Spring Boot, React, TypeScript, REST APIs, and SQL databases, with hands-on experience building and deploying serverless applications on Cloudflare Workers.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-weight: 800; margin-bottom: 4px;">Experience</h4>
+          <p style="color: var(--text-muted);">
+            <strong>Tap Academy – Bangalore</strong> (Feb 2026 – Jul 2026)<br>
+            Java Full Stack Development Intern — Responsive HTML/CSS UI modules, Core Java OOP, multithreading, and SQL database operations.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-weight: 800; margin-bottom: 4px;">Flagship Project</h4>
+          <p style="color: var(--text-muted);">
+            <strong>MediSync – Edge-Native Smart Clinic Platform</strong><br>
+            Deployed on Cloudflare Workers, serving Hono REST API and React 18 SPA from a unified Worker with sub-15ms edge latency and SQLite partial unique index for double-booking conflict prevention.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 14px; margin-top: 14px;">
+          <a href="mailto:sahlasubair02@gmail.com" class="btn-pill-get-in-touch" style="flex: 1; text-align: center; justify-content: center; padding: 12px 20px;">
+            Contact Sahala
+          </a>
+          <button class="btn-open-project" onclick="window.print()" style="flex: 1; justify-content: center; background: var(--bg-card); color: var(--text-dark); cursor: pointer; border-radius: var(--radius-pill); font-weight: 600; padding: 12px 20px; border: none;">
+            Print / Save PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo & Headline Swap Modal -->
+  <div class="modal-overlay" id="photoSwapModal">
+    <div class="modal-card">
+      <button class="modal-close-x" id="closePhotoModalBtn" aria-label="Close modal">&times;</button>
+      
+      <div style="border-bottom: 1px solid var(--border-card); padding-bottom: 16px; margin-bottom: 20px;">
+        <span style="font-family: var(--font-watermark); font-size: 1.3rem; color: var(--btn-mocha); letter-spacing: 0.04em;">CUSTOMIZE DISPLAY</span>
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-dark); margin-top: 4px;">Photo &amp; Headline Swap</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Switch between portrait cutout, original photo, headline titles, or upload your own.</p>
+      </div>
+
+      <!-- Profile positioning -->
+      <div style="margin-bottom: 24px;">
+        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">Profile positioning</h4>
+        <p style="color: var(--text-muted); font-size: .95rem;">Full Stack Developer — Java, Spring Boot, React and TypeScript.</p>
+      </div>
+
+      <!-- Photo Options Grid -->
+      <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">Hero Portrait:</h4>
+      <div class="swap-options-grid">
+        <div class="swap-option-card selected" data-src="assets/sahala-portrait.png">
+          <img src="assets/sahala-portrait.png" alt="Sahala Cutout Transparent">
+          <div class="swap-option-title">Transparent Cutout</div>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Exact Dribbble arch staging</span>
+        </div>
+        <div class="swap-option-card" data-src="assets/sahala-original.jpg">
+          <img src="assets/sahala-original.jpg" alt="Sahala Original Photo">
+          <div class="swap-option-title">Original Photo</div>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Original headshot background</span>
+        </div>
+      </div>
+
+      <!-- Upload custom photo -->
+      <div class="swap-file-input-wrapper">
+        <label for="photoUploadInput" style="display: block; cursor: pointer;">
+          <span style="font-weight: 700; color: var(--text-dark); display: block; margin-bottom: 4px;">Upload Custom Image</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 12px;">PNG cutout or JPG photo (saved locally)</span>
+          <input type="file" id="photoUploadInput" accept="image/*" style="display: inline-block; font-size: 0.9rem;">
+        </label>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+        <button type="button" onclick="resetPhoto()" style="padding: 10px 20px; border-radius: 999px; border: 1px solid var(--border-card); background: transparent; color: var(--text-muted); cursor: pointer;">Reset to Default</button>
+        <button type="button" id="closePhotoModalDoneBtn" style="padding: 10px 24px; border-radius: 999px; border: none; background: var(--btn-mocha); color: #fff; font-weight: 600; cursor: pointer;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="motion.js"></script>
+</body>
+</html>

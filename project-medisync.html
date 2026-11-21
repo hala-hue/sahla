@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediSync Case Study — Sahala Subair</title>
+  <meta name="description" content="In-depth case study of MediSync: edge-native smart clinic appointment platform built by Sahala Subair using Cloudflare Workers, Hono, React 18, and D1 SQLite.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Sahala Subair Home">
+        <span class="code-bracket">&lt;/&gt;</span> Sahala Subair
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        
+        <li class="nav-item-dropdown">
+          <a href="#" class="nav-link dropdown-trigger active">
+            Pages
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Sahala</a></li>
+            <li><a href="portfolio.html">Portfolio &amp; Works</a></li>
+            <li><a href="project-medisync.html">Case Study <span class="badge-page">Active</span></a></li>
+            <li><a href="blog.html">Blog &amp; Insights</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </li>
+
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-resume" id="openResumeBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Resume
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Case Study Hero -->
+  <section class="case-study-hero">
+    <div class="container">
+      <span class="section-tag"><span class="slash">/</span> ARCHITECTURE CASE STUDY</span>
+      <h1 class="page-hero-title">MediSync: Edge-Native Smart Clinic Appointment Platform</h1>
+      <p class="page-hero-subtitle">
+        How a unified Cloudflare Workers architecture combined Hono and React 18 to eliminate CORS roundtrips, cut edge latency to &lt;15ms, and prevent appointment double-booking.
+      </p>
+
+      <!-- Case Study Meta Bar -->
+      <div class="case-study-meta-bar">
+        <div class="meta-item">
+          <span class="meta-title">Role</span>
+          <span class="meta-val">Full Stack Architect</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-title">Environment</span>
+          <span class="meta-val">Cloudflare Workers &amp; D1</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-title">Frontend</span>
+          <span class="meta-val">React 18 + TanStack Query</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-title">Testing</span>
+          <span class="meta-val">16 Vitest Suites (CI/CD)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-title">Latency</span>
+          <span class="meta-val" style="color: #60a5fa;">&lt;15ms Global Edge</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Body Content -->
+  <section class="case-study-body">
+    <div class="container">
+      <div class="case-study-grid">
+        
+        <div>
+          <!-- Challenge -->
+          <div class="case-study-section">
+            <span class="section-tag"><span class="slash">/</span> 01 THE CHALLENGE</span>
+            <h3>Eliminating CORS Roundtrips &amp; Concurrency Collisions</h3>
+            <p>
+              Traditional full stack clinic booking applications often run separate frontend and backend hosting domains, introducing high-latency cross-origin preflight requests (OPTIONS) and risking booking collisions when multiple patients click to reserve the same doctor slot simultaneously.
+            </p>
+            <p>
+              The goal was to design an edge-first healthcare platform that eliminated these roundtrips entirely, provided instant UI feedback, and handled concurrency at the database level rather than through fragile client state.
+            </p>
+          </div>
+
+          <!-- Architecture & Solution -->
+          <div class="case-study-section">
+            <span class="section-tag"><span class="slash">/</span> 02 THE SOLUTION</span>
+            <h3>Unified Worker Deployment &amp; SQLite Partial Unique Index</h3>
+            <p>
+              I engineered MediSync to serve both the Hono REST API and static React 18 assets from a single Cloudflare Worker. Because both API and assets share the same edge origin, CORS preflights are completely avoided, achieving sub-15ms edge latency across global regions.
+            </p>
+            <p>
+              To eliminate appointment double-booking, I implemented a SQLite partial unique index in Cloudflare D1. Even when parallel requests arrive in the exact same millisecond window, the database rejects duplicates with an automatic 409 Conflict status.
+            </p>
+
+            <!-- Code Snippet -->
+            <div class="code-box-large">
+              <span class="code-comment">// SQLite D1 Partial Unique Index Definition</span><br>
+              <span class="code-keyword">CREATE UNIQUE INDEX</span> IF NOT EXISTS idx_active_doctor_slot<br>
+              <span class="code-keyword">ON</span> appointments (doctor_id, slot_timestamp)<br>
+              <span class="code-keyword">WHERE</span> status NOT IN ('cancelled', 'rejected');<br>
+              <br>
+              <span class="code-comment">// Verified through automated parallel request collision test suites</span>
+            </div>
+          </div>
+
+          <!-- Authentication & Security -->
+          <div class="case-study-section">
+            <span class="section-tag"><span class="slash">/</span> 03 SECURITY &amp; SCHEDULING</span>
+            <h3>WebCrypto PBKDF2 &amp; Dynamic Slot Algorithms</h3>
+            <p>
+              Security is enforced using the native WebCrypto API with PBKDF2 (SHA-256) password hashing and role-based JWT authorization separating Admin, Doctor, and Patient permissions. D1-backed rate limiting protects sensitive endpoints against automated attacks.
+            </p>
+            <p>
+              The platform features a dynamic scheduling algorithm that calculates available 30-minute consultation slots on the fly from weekly doctor recurring schedules, doctor leave exceptions, and existing reservations.
+            </p>
+          </div>
+
+          <!-- Results -->
+          <div class="case-study-section">
+            <span class="section-tag"><span class="slash">/</span> 04 RESULTS &amp; IMPACT</span>
+            <h3>Performance Verification</h3>
+            <ul class="project-bullets" style="margin-top: 16px;">
+              <li>
+                <span class="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>Sub-15ms edge response:</strong> Verified via real-time edge telemetry.</span>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>16 Vitest suites:</strong> Continuous integration pipeline on GitHub Actions passing 100% of collision tests.</span>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>Zero double-booking:</strong> 100% collision resistance verified under synthetic stress testing.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sidebar Info -->
+        <div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 32px; position: sticky; top: 110px;">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 20px;">Tech Stack Overview</h4>
+            
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;">
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Edge Serverless</span>
+                <p style="color: #fff; font-weight: 600;">Cloudflare Workers</p>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Database &amp; ORM</span>
+                <p style="color: #fff; font-weight: 600;">Cloudflare D1 (SQLite) + Drizzle ORM</p>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">REST Framework</span>
+                <p style="color: #fff; font-weight: 600;">Hono Framework + OpenAPI</p>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Frontend UI</span>
+                <p style="color: #fff; font-weight: 600;">React 18 + TanStack Query + Tailwind</p>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Testing</span>
+                <p style="color: #fff; font-weight: 600;">Vitest (16 Suites) + GitHub Actions</p>
+              </div>
+            </div>
+
+            <a href="https://github.com/SahlaSubair" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content: center; width: 100%; margin-bottom: 12px;">
+              View Code On GitHub
+            </a>
+            <a href="portfolio.html" class="btn-secondary" style="justify-content: center; width: 100%;">
+              ← Back to Portfolio
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="index.html" class="brand-logo">
+          <span class="code-bracket">&lt;/&gt;</span> Sahala Subair
+        </a>
+
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Sahala Subair. Designed in Developer X theme aesthetic.</p>
+        <p>Dubai, UAE | Full Stack Developer</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Resume Modal -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close resume modal">&times;</button>
+      <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 24px;">
+        <span class="skill-badge">CURRICULUM VITAE</span>
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-top: 8px;">Sahala Subair</h2>
+        <p style="color: var(--accent-blue-hover); font-weight: 600;">Full Stack Developer (Java, React, TypeScript)</p>
+      </div>
+      <div style="color: var(--text-light); font-size: 0.92rem; line-height: 1.65;">
+        <p>Computer Science Engineering graduate with Java Full Stack Development internship experience at Tap Academy. Skilled in Java, Spring Boot, React, TypeScript, and serverless Cloudflare Workers.</p>
+        <a href="mailto:sahlasubair02@gmail.com" class="btn-primary" style="display: inline-flex; justify-content: center; width: 100%; margin-top: 14px;">Contact Sahala</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
